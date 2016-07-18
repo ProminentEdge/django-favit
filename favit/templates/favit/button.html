@@ -1,6 +1,6 @@
 <div class="favit">
-  <button class="btn favorite" href="{% url 'favit.views.add_or_remove' %}" model="{{ target_model }}" id="target_{{ target_object_id }}">
-    <i class="icon-heart{% if not undo %}-empty{% endif %}"></i>
-  </button>
+  <a ng-controller="favoriteController" ng-click="onFavorite('{{ target_model }}', '{{ target_object_id }}')" class="btn favorite">
+    <i id="favorite-heart" class="icon-heart{% if undo %}-empty{% endif %}"></i>
+  </a>
   <span class="fav-count">{{ fav_count }}</span>
 </div>
