@@ -9,7 +9,7 @@ register = template.Library()
 
 
 @register.simple_tag(takes_context=True)
-def favorite_button(context, target):
+def favorite_button(context, target, html='favit/button.html'):
     user = context['request'].user
 
     # do nothing when user isn't authenticated
@@ -25,7 +25,7 @@ def favorite_button(context, target):
         undo = True
 
     return render_to_string(
-        'favit/button.html', {
+        html, {
             'target_model': target_model,
             'target_object_id': target.id,
             'undo': undo,

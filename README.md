@@ -2,6 +2,7 @@
 
 A simple reusable app for django that makes it easy to deal with faving
 and unfaving any object from any application.
+This fork of favit is using an Angular JS service on the client side.
 
 ## Installation
 
@@ -37,14 +38,17 @@ urlpatterns = patterns('',
 python manage.py syncdb
 ```
 
-* Make sure you have jQuery ajax CSRF configuration right
-
-See https://docs.djangoproject.com/en/1.7/ref/contrib/csrf/#ajax
-
 ## Usage:
 
 
 ### Template tags:
+
+* Favorite Button for an object `my_obj`:
+
+```python
+{% favorite_button my_obj %}
+```
+
 
 * Get the favorited objects for a given user:
 
@@ -70,12 +74,6 @@ See https://docs.djangoproject.com/en/1.7/ref/contrib/csrf/#ajax
 {% with obj|get_favorite_for:user as fav_object %}
     ...
 {% endwith %}
-```
-
-* Favorite Button for an object `my_obj`:
-
-```python
-{% favorite_button my_obj %}
 ```
 
 
